@@ -29,8 +29,9 @@ function get(req, res) {
 async function create(req, res, next) {
     const email = req.body.email;
     const password = req.body.password;
+    const role = "user";
     try {
-        const user = await User.create({ email, password });
+        const user = await User.create({ email, password, role });
         return res.json({
             user
         })
